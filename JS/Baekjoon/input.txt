@@ -1,8 +1,5 @@
-7
-abba
-summuus
-xabba
-xabbay
-comcom
-comwwmoc
-comwwtmoc
+4 4 8
+3
+0 10
+1 10
+2 1
