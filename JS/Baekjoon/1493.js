@@ -13,7 +13,6 @@ let [len, w, h] = input[0].split(" ").map(x => +x);
 let cubes = Array(20).fill(0);
 
 
-
 function nearestSquare(x){ // x보다 작거나 같으면서 가장 가까운 2^i를 찾는 함수
   let i = 1;
   while ((2 ** i) <= x){
