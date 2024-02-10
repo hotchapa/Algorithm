@@ -34,5 +34,5 @@ for(x of arr){
     d[index] = x;
   }
 }
-
+console.log(d)
 console.log(n - (d.length-1))
