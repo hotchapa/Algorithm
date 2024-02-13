@@ -9,9 +9,9 @@ function dfs(depth){
       if (cost == 0) return; // 이동 불가능하면 무시
       totalCost += cost; // 가능하면 비용 더하고 노드 이동
       cur = nextNode;
-     }
+  }
      // 마지막 노드에서 1로 돌아오기
-     let cost = graph[cur][1];
+    let cost = graph[cur][1];
      if (cost == 0) return; // 불가능하면 무시
      totalCost += cost; // 이동 가능하면 비용 더하고 노드 이동
      minValue = Math.min(minValue, totalCost); // 경로 최소 비용 저장
