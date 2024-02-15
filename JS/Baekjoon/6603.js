@@ -1,5 +1,4 @@
 
-
 function dfs(arr,depth,start){
   if(depth == 6){
     let result = [];
@@ -18,8 +17,8 @@ function dfs(arr,depth,start){
     selected.push(i);
     visited[i] = true;
     dfs(arr, depth+1, i+1);
-    selected.pop();
     visited[i] = false;
+    selected.pop();
   }
 }
 
