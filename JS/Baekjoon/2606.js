@@ -17,6 +17,7 @@ for(let i = 2; i <=n+1; i++){
     graph[y].push(x)
 }
 
+console.log(graph)
 let cnt = 0;
 let visited = new Array(computer+1).fill(false);
 
