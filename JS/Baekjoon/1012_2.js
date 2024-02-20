@@ -7,17 +7,16 @@ const fs = require('fs');
 const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
 let input = fs.readFileSync(filePath).toString().trim().split("\n");
 const t = input.shift()*1 
-
-function dfs(arr,n,m,i,j){
-  if(i < 0 || i >= n || j < 0 || j >= m){
+function dfs(arr,n,m,y,x){
+  if(y < 0 || y >= n || x < 0 || x >= m){
     return false;
   }
-  if(arr[i][j] == 1){
-    arr[i][j] = -1;
-    dfs(arr,n,m,i+1,j)
-    dfs(arr,n,m,i,j+1)
-    dfs(arr,n,m,i-1,j)
-    dfs(arr,n,m,i,j-1)
+  if(arr[y][x] == 1){
+    arr[y][x] = -1;
+    dfs(arr,n,m,y+1,x)
+    dfs(arr,n,m,y,x+1)
+    dfs(arr,n,m,y-1,x)
+    dfs(arr,n,m,y,x-1)
     return  true;
   }
   return false;
@@ -25,19 +24,20 @@ function dfs(arr,n,m,i,j){
 
 for(let tc = 0; tc<t; tc++){
   const [m,n,k] = input.shift().split(" ").map(x=>+x);
-  let arr = Array.from({ length: n }, () => Array(m).fill(0));
+  let arr = Array.from({ length: m }, () => Array(n).fill(0));
   let cnt = 0;
   for(let i = 0; i<k; i++){
   let [y,x] = input.shift().split(" ").map(x=>+x)
-  arr[x][y] = 1;
+  arr[y][x] = 1;
   }
-  for(j=0; j<n; j++){
-    for(i=0; i<m; i++){
-      if(dfs(arr,n,m,i,j) == true){
+
+  for(let y=0; y<m; y++){
+    for(let x=0; x<n; x++){
+      if(dfs(arr, m, n, y, x) == true){
         cnt += 1;
       }
-      
     }
   }
+  
   console.log(cnt)
 }
