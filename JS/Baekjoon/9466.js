@@ -1,3 +1,7 @@
+// 숫자 고르기와 마찬가지로 싸이클을 구하는 문제
+// 싸이클을 이루는 노드를 구해서 전체 노드의 값에서 뺀 뒤
+// 이루지 못한 노드의 수를 출력하면 됨
+
 const fs = require("fs");
 const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
 const input = fs.readFileSync(filePath).toString().split("\n");
