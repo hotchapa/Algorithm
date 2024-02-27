@@ -2,12 +2,16 @@ const fs = require("fs");
 const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
 const input = fs.readFileSync(filePath).toString().trim().split("\n")
 
-let [n, m] = input[0].split(' ').map(Number); let data = []; // 초기 맵 리스트
+let [n, m] = input[0].split(' ').map(Number); 
+let data = []; // 초기 맵 리스트
 let temp = []; // 벽을 설치한 뒤의 맵 리스트 
+
 for (let i = 1; i <= n; i++) {
-let line = input[i].split(' ').map(Number); data.push(line);
-temp.push(new Array(m).fill(0));
+  let line = input[i].split(' ').map(Number); 
+    data.push(line);
+    temp.push(new Array(m).fill(0));
 }
+
 let dx = [-1, 0, 1, 0]; // 4가지 이동 방향에 대한 리스트 
 let dy = [0, 1, 0, -1];
 let result = 0;
