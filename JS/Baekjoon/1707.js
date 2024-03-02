@@ -114,3 +114,54 @@
 
 //   console.log(isBipartite ? "YES" : "NO");
 // }
+
+
+
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let input = fs.readFileSync(filePath).toString().split("\n")
+let k = Number(input[0]);
+let index = 1;
+
+for(let tc = 0; tc < k; tc++){
+  let [v,e] = input[index++].split(" ").map(Number);
+  let graph = Array(v+1).fill(null).map(() => Array());
+  let visited = Array(v+1).fill(0);
+
+  for(let i = 0; i<e; i++){
+    let [a, b] = input[index++].split(" ").map(Number);
+    graph[a].push(b);
+    graph[b].push(a);
+  }
+
+  function bfs(start){
+    let queue = [];
+    queue.push(start);
+    visited[start] = 1;
+
+    while(queue.length){
+      let nextNode = queue.shift();
+
+      for(let i=0; i<graph[nextNode].length; i++){
+        let node = graph[nextNode][i];
+        if(visited[node] === 0){
+          queue.push(node);
+          visited[node] = 3 - visited[nextNode];
+        } else if(visited[node] == visited[nextNode]) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  let isBipartite = true;
+  for(let i=1; i<=v; i++) {
+    if(visited[i] === 0) {
+      isBipartite = bfs(i);
+      if(!isBipartite) break;
+    }
+  }
+
+  console.log(isBipartite ? "YES" : "NO");
+}
