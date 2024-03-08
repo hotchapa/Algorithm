@@ -38,7 +38,7 @@ let mx = tmp;
 
 for (let i = k; i < n; i++) {
   tmp -= arr[i - k];
-  tmp += arr[i];
+  tmp += arr[i];  
   console.log(tmp)
 
   mx = Math.max(mx, tmp);
