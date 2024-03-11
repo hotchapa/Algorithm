@@ -10,7 +10,6 @@ let input = fs.readFileSync(filePath).toString().trim().split("\n");
 const [N, M] = input[0].split(" ").map(Number);
 const numbers = input[1].split(" ").map(Number).sort((a, b) => a - b);
 
-const visited = Array(N).fill(false);
 const output = [];
 const result = new Set();
 
@@ -21,13 +20,9 @@ function dfs(start, depth) {
         return;
     }
     for (let i = start; i < N; i++) {
-        if (!visited[i]) {
-            visited[i] = true;
-            output.push(numbers[i]);
-            dfs(i, depth + 1);
-            output.pop();
-            visited[i] = false;
-        }
+        output.push(numbers[i]);
+        dfs(i, depth + 1); // 현재 선택한 숫자의 인덱스를 그대로 넘겨줌
+        output.pop();
     }
 }
 
