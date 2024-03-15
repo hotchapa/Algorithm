@@ -1,5 +1,5 @@
-// 테케1의 2,4,7 은 고정석을 뜻함
-// 2,4,7을 제외하고 자리를 바꿀 수 있고, 그것의 가짓수를 구하면 됨
+// 테케1의 4,7 은 고정석을 뜻함
+// 4,7을 제외하고 자리를 바꿀 수 있고, 그것의 가짓수를 구하면 됨
 // 근데 점화식을 어떻게 도출하냐?
 
 // for 순회
@@ -22,7 +22,6 @@ const input = fs.readFileSync(filePath).toString().trim().split("\n");
 const n = parseInt(input[0]); // 전체 좌석의 수
 const m = parseInt(input[1]); // VIP 좌석의 수
 const vipSeats = input.slice(2, 2 + m).map(Number); // VIP 좌석 번호 목록
-
 let dp = Array(n + 1).fill(0);
 dp[0] = 1; // 0개의 연속된 좌석에 대한 경우의 수
 dp[1] = 1; // 1개의 연속된 좌석에 대한 경우의 수
