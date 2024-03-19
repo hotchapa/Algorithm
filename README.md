@@ -4,7 +4,7 @@
 
 문제이름|알고리즘|난이도|링크|
 |:---:|:---:|:---:|:---:|
-|[녹색 옷 입은 애가 젤다지?](https://www.acmicpc.net/problem/4485)|<span style="color:red">**Dijkstra, BFS**</span>|골드4|[풀이]()|
+|[녹색 옷 입은 애가 젤다지?](https://www.acmicpc.net/problem/4485)|<span style="color:red">**Dijkstra, BFS**</span>|골드4|[풀이](https://github.com/hotchapa/Algorithm/blob/0e264043cbb9786dce62005bd5f5d006cd0dfb9c/JS/Baekjoon/4485.js)|
 
 
 ## 문제 풀이 과정
