@@ -4,7 +4,7 @@
 
 문제이름|알고리즘|난이도|링크|
 |:---:|:---:|:---:|:---:|
-|[플로이드](https://www.acmicpc.net/problem/11404)|<span style="color:red">**Floyd-Warshall**</span>|골드4|[풀이](https://github.com/hotchapa/Algorithm/blob/0e264043cbb9786dce62005bd5f5d006cd0dfb9c/JS/Baekjoon/11404.js)|
+|[플로이드](https://www.acmicpc.net/problem/11404)|<span style="color:red">**Floyd-Warshall**</span>|골드4|[풀이](https://github.com/hotchapa/Algorithm/blob/11065638e2da0a65c6b1db47e26ceeaf6cdaa1e7/JS/Baekjoon/11404.js)|
 
 
 ## 문제 풀이 과정
