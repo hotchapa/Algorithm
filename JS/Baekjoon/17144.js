@@ -164,7 +164,7 @@ function Spread(board) {
 
 // 공기청정기 작동 함수
 function AirConditionar(board) {
-  let [[ax1, ay1], [ax2, ay2]] = air_conditionar;
+  let [[ax1], [ax2]] = air_conditionar;
   
   // 상단 공기청정기 순환
   for (let i = ax1 - 1; i > 0; i--) board[i][0] = board[i-1][0];
