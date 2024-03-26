@@ -159,6 +159,7 @@ function Spread(board) {
       }
     }
   }
+  console.log(newBoard)
   return newBoard;
 }
 
