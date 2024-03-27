@@ -5,7 +5,7 @@ let str = input[0];
 
 const answer = new Set();
 
-// 모든 가능한 부분 문자열을 탐색하여 Set에 추가
+// 모든 가능한 부분 문자열을 탐색하53여 Set에 추가
 for (let i = 0; i < str.length; i++) {
   for (let j = i + 1; j <= str.length; j++) {
     const substring = str.substring(i, j);
