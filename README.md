@@ -4,7 +4,7 @@
 
 문제이름|알고리즘|난이도|링크|
 |:---:|:---:|:---:|:---:|
-|[미로 만들기](https://www.acmicpc.net/problem/1347)|<span style="color:green">**Simulation**</span>|실버3|[풀이](https://github.com/hotchapa/Algorithm/blob/f85f066b2544662c5f7d1bf7819c51a5592bbe62/JS/Baekjoon/1347.js)|
+|[미로 만들기](https://www.acmicpc.net/problem/1347)|<span style="color:green">**Simulation**</span>|실버2|[풀이](https://github.com/hotchapa/Algorithm/blob/f85f066b2544662c5f7d1bf7819c51a5592bbe62/JS/Baekjoon/1347.js)|
 
 ## 문제 풀이 과정
 
