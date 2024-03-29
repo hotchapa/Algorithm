@@ -1,2 +1,7 @@
-31
-FRFFFFFFLLFRFFFFFLLFRFFFFLFFLFF
+6 6
+...#..
+.##v#.
+#v.#.#
+#.o#.#
+.###.#
+...###
