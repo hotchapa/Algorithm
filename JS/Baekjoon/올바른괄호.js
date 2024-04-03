@@ -16,7 +16,7 @@
 //           }
 //       }
 //   }
-  
+
 //   if(stack.length > 0) answer = false; // 괄호가 남아있으면 false 
 
 //   return answer;
