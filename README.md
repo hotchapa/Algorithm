@@ -1,42 +1,20 @@
-# **오늘의 알고리즘**
-### 2024-04-03 (수)
+# **오늘의 알고리즘 풀이 정리**
+### 2024-04-04 (목)
 ---
 
 문제이름|알고리즘|난이도|링크|
 |:---:|:---:|:---:|:---:|
-|[기찍 N](https://www.acmicpc.net/problem/2742)|<span style="color:green">**스택**</span>|브론즈 4|[풀이](https://github.com/hotchapa/Algorithm/blob/0d9b876b69205dabd744c010231e7d6cd4b8571f/JS/Baekjoon/2742.js)|
+|[수열의 합](https://www.acmicpc.net/problem/1024)|<span style="color:orange">**수학, 브루트포스**</span>|실버 2|[풀이](https://github.com/yourgithub/Algorithm/blob/yourcommit/JS/Baekjoon/1024.js)|
 
 ## 문제 풀이 과정
 
-```
-const fs = require('fs');
-const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
-let input = fs.readFileSync(filePath).toString().trim().split("\n");
-const t = input.shift()*1 
-for(let i=t; i>=1; i--){
-    console.log(i)
-}
-```
+특정 숫자 N을 연속된 자연수들의 합으로 표현하고 그 중에서도 주어진 길이 L 이상인 수열 중 가장 짧은 것을 찾는 것!
 
-t번만큼 console.log를 반복하면 시간초과가 났다.
+1) 연속된 수열의 길이 `length`를 L부터 시작하여 최대 100까지 늘려가며, 각 경우에 대해 수열의 시작점 `x`를 계산한다.
 
+2) 계산된 `x`가 정수이고 음수가 아닐 때, 해당 `x`부터 시작하는 `length` 길이의 연속된 수열이 N을 만족한다. 이때, 첫 번째로 조건을 만족하는 수열을 찾으면 반복을 종료하고, 해당 수열을 출력한다.
 
-```
-const fs = require('fs');
-const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
-let input = fs.readFileSync(filePath).toString().trim().split("\n");
-const t = Number(input[0]);
-let answer = [];
-for(let i=t; i>=1; i--){
-    answer.push(i)
-}
-
-console.log(answer.join("\n"))
-```
-
-그래서 모든 출력을 배열에 저장하고, 마지막에 한 번에 모든 출력을 결합하여 console.log()로 출력하는 방식으로 고쳤더니
-시간 초과 없이 해결할 수 있었다.
-
+3) 만약 조건을 만족하는 수열을 찾지 못하면 `-1`을 출력한다.
 
 ## 풀이 후 느낀점
-배열에 답을 넣고 한번에 출력해야 시간복잡도가 줄어드는 건 알고있었지만, 정작 그런 일을 자주 겪진 못했었는데 이젠 console.log는 되도록 적게 쓰도록 해야겠다.
+재귀로 풀어보고 반복문 + 조건문으로 노가다를 했었는데...N이 주어졌을 때, L로 나누게 되면 그 몫의 앞뒤 수를 (L-1)/2만큼 더하거나 뺐을 때 연속된 수가 나온다는 규칙을 바로 찾아냈다면 효율적으로 풀이했을 것 같다.
