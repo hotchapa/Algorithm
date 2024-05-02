@@ -59,7 +59,6 @@
 //             }
 //         }
 
-//         // 위상 정렬 실행
 //         while(queue.length) {
 //             let curr = queue.shift();
 
@@ -95,7 +94,7 @@ function dfs(node, graph, time, dp) {
         maxTime = Math.max(maxTime, dfs(next, graph, time, dp));
     }
 
-    dp[node] = time[node - 1] + maxTime;  // 현재 노드를 건설하는데 필요한 시간 추가
+    dp[node] = time[node - 1] + maxTime;  // 현재 건물을 건설하는데 필요한 시간 추가
     return dp[node];
 }
 
@@ -109,12 +108,10 @@ function solve() {
 
         for (let j = 0; j < K; j++) {
             let [x, y] = input[index++].split(" ").map(Number);
-            graph[y].push(x);  // y를 짓기 위해 x가 필요함을 나타냄
+            graph[y].push(x);  // y건물을 짓기 위해 x건물이 필요함을 나타냄
         }
 
         const goal = Number(input[index++]);
-
-        // 목표 건물에 대한 DFS 실행
         results.push(dfs(goal, graph, time, dp));
     }
     return results;
