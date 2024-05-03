@@ -1,5 +1,6 @@
-4 29
-Hello
-world
-John
-said
+3 2
+1 65
+5 23
+2 99
+10
+2
