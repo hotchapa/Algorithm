@@ -1,64 +1,50 @@
+const fs = require('fs');
+const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
+let input = fs.readFileSync(filePath).toString().trim().split('\n');
+const [M,N,K] = input.shift().split(" ").map(Number);
+const board = input.map((e)=> e.split(" ").map(Number));
+const arr = Array.from({length:M},()=>Array(N).fill(0));
 
-  const fs = require("fs");
-  const filePath = process.platform === "linux" ? "/dev/stdin" : "./test.txt";
-  const stdin = fs.readFileSync(filePath).toString().trim();
-  
-  const input = stdin.split("\n").map(ele => ele.split(" ").map(Number));
-  
-  const [M, N, K] = input.shift();
-  let map = Array.from({length: M}, () => {
-    return Array(N).fill(0);
-  });
-  
-  let visited = Array.from({length: M}, () => {
-    return Array(N).fill(false);
-  });
-  
-  let dx = [1, -1, 0, 0];
-  let dy = [0, 0, 1, -1];
-  
-  let answer = [];
-  
-  function bfs(i, j) {
-    let queue = [[i, j]];
-    visited[i][j] = true;
-    let count = 1;
-    while (queue.length) {
-      let [cx, cy] = queue.shift();
-      for (let i = 0; i < 4; i++) {
-        let [nx, ny] = [cx + dx[i], cy + dy[i]];
-        if (nx < 0 || ny < 0 || nx >= M || ny >= N || visited[nx][ny]) continue;
-  
-        if (map[nx][ny] === 0) {
-          visited[nx][ny] = true;
-          queue.push([nx, ny]);
-          count++;
+for(let x of board){
+  let [a,b,c,d] = [x[0],x[1],x[2],x[3]];
+  for(let i = b; i<d; i++){
+    for(let j= a; j<c; j++){
+      arr[i][j] = 1;
+    }
+  }
+}
+const visited = Array.from({length:M},()=>Array(N).fill(0));
+
+function bfs(x,y){
+  let queue = [[x,y]];
+  visited[x][y] = 1;
+  const dirX = [0, -1, 0, 1];
+  const dirY = [-1, 0, 1, 0];
+  let size = 1;
+  while(queue.length){
+    let [x,y] = queue.shift();
+    for(let i = 0; i<4; i++){
+      if(0 <= x+dirX[i] && M > x+dirX[i] && 0 <= y+dirY[i] && N > y+dirY[i]){
+        if(arr[x+dirX[i]][y+dirY[i]] == 0 && visited[x+dirX[i]][y+dirY[i]] === 0){
+          visited[x+dirX[i]][y+dirY[i]] = 1;
+          queue.push([x+dirX[i],y+dirY[i]])
+          size++;
         }
       }
+    } 
     }
-    if (count) {
-      answer.push(count);
-    }
+    return size
   }
-  
-  for (let k = 0; k < K; k++) {
-    let [lby, lbx, rty, rtx] = input[k];
-    // (1, 1) -> (3, 1)
-    let [tbx, tby, ttx, tty] = [M - lbx - 1, lby, M - rtx, rty];
-    for (let i = 0; i < M; i++) {
-      for (let j = 0; j < N; j++) {
-        if (ttx <= i && tby <= j && i <= tbx && j < tty) {
-          map[i][j] = 1;
-        }
-      }
+
+let result = [];
+
+for(let i =0; i<M; i++){
+  for(let j =0; j<N; j++){    
+    if (arr[i][j] === 0 && !visited[i][j]) {
+      result.push(bfs(i,j));
     }
+    
   }
-  
-  for (let i = 0; i < M; i++) {
-    for (let j = 0; j < N; j++) {
-      if (!visited[i][j] && !map[i][j]) {
-        bfs(i, j);
-      }
-    }
-  }
-  console.log(`${answer.length}\n${answer.sort((a, b) => a - b).join(" ")}`);
+}
+console.log(result.length);
+console.log(result.sort((a,b)=> a-b).join(" "));
