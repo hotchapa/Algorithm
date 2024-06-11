@@ -5,15 +5,6 @@
 문제이름|알고리즘|난이도|링크|
 |:---:|:---:|:---:|:---:|
 |[기차가 어둠을 헤치고 은하수를](https://www.acmicpc.net/problem/27958)|<span style="color:red">**Implementation**</span>|실버 2|[풀이](https://github.com/hotchapa/Algorithm/blob/main/JS/Baekjoon/15787.js)|
-### 2024-06-12 (수)
-
----
-
-### 문제이름: [기차가 어둠을 헤치고 은하수를](https://www.acmicpc.net/problem/15787)
-
-**알고리즘:** Implementation  
-**난이도:** 실버 2  
-**링크:** [풀이](https://github.com/hotchapa/Algorithm/blob/main/JS/Baekjoon/15787.js)
 
 ---
 
