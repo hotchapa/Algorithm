@@ -1,10 +1,9 @@
 function solution(land) {
-  const n = land.length;
-  const m = land[0].length;
-
-  const directions = [
-      [1, 0], [-1, 0], [0, 1], [0, -1]
-  ];
+    const n = land.length;
+    const m = land[0].length;
+    const directions = [
+    [1, 0], [-1, 0], [0, 1], [0, -1]
+    ];
 
   const sizes = []; // 각 석유 덩어리의 크기를 저장
   const map = Array.from({ length: n }, () => Array(m).fill(-1)); // 각 위치가 속한 클러스터 ID를 저장
